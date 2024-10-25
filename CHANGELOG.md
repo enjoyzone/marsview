@@ -2,6 +2,80 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.4.8](https://github.com/JackySoft/marsview/compare/v4.4.7...v4.4.8) (2024-10-24)
+
+
+### Bug Fixes
+
+* 修复问题 ([c4e2c22](https://github.com/JackySoft/marsview/commit/c4e2c228b7c6043624f064082557d45a637b88b1))
+
+### [4.4.7](https://github.com/JackySoft/marsview/compare/v4.4.6...v4.4.7) (2024-10-24)
+
+
+### Build System
+
+* 1.修改文档 2.修改打包脚本 ([092cc4f](https://github.com/JackySoft/marsview/commit/092cc4f8a987f1ae5ccf26f65ff70b95be2668a7))
+
+### [4.4.6](https://github.com/JackySoft/marsview/compare/v4.4.5...v4.4.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* 修复问题 ([5d954db](https://github.com/JackySoft/marsview/commit/5d954db839845c91dfc9e9b60ae4e9e0e1876d60))
+* 修改文档链接 ([b36a4e4](https://github.com/JackySoft/marsview/commit/b36a4e48b2b6256ba07c9e2c6ce794b3055c9fa7))
+
+### [4.4.5](https://github.com/JackySoft/marsview/compare/v4.4.4...v4.4.5) (2024-10-23)
+
+
+### Documentation
+
+* 增加部署文档 ([0c39d66](https://github.com/JackySoft/marsview/commit/0c39d669f1d4fb52e20599d0f60caca4083509cf))
+
+### [4.4.4](https://github.com/JackySoft/marsview/compare/v4.4.3...v4.4.4) (2024-10-23)
+
+
+### Feature Improvements
+
+* 优化代码 ([fd393e8](https://github.com/JackySoft/marsview/commit/fd393e80e4e96e8d60641a6d6359c54ae0516b43))
+
+### [4.4.3](https://github.com/JackySoft/marsview/compare/v4.4.2...v4.4.3) (2024-10-22)
+
+
+### Others
+
+* 删除LIENSE中商用部分限制，完全解除。 ([734cc33](https://github.com/JackySoft/marsview/commit/734cc330351eda4a9b24425844dc41b4e70075df))
+
+### [4.4.2](https://github.com/JackySoft/marsview/compare/v4.4.1...v4.4.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* 修复审批流打开问题 ([891c6df](https://github.com/JackySoft/marsview/commit/891c6dfd773009b6c530877c3a76a05ef678a6f7))
+
+### [4.4.1](https://github.com/JackySoft/marsview/compare/v4.4.0...v4.4.1) (2024-10-22)
+
+
+### Features
+
+* 工作流隐藏分组 ([bd5bac6](https://github.com/JackySoft/marsview/commit/bd5bac69f3a58b4e67902882d5654c9ae0f5dfc1))
+
+## [4.4.0](https://github.com/JackySoft/marsview/compare/v4.3.1...v4.4.0) (2024-10-22)
+
+
+### Features
+
+* 1. 上线审批流。2.修复反馈问题。 ([c1b9b4c](https://github.com/JackySoft/marsview/commit/c1b9b4c750f39bcdd7c5abb9e2888171e5800992))
+
+
+### Styles
+
+* 修复样式问题 ([9864ab8](https://github.com/JackySoft/marsview/commit/9864ab8e61e47e782568e4ee450dffb6ec25c566))
+
+
+### Others
+
+* 修改环境地址 ([1f9932d](https://github.com/JackySoft/marsview/commit/1f9932d6f645ac3889cee48fce4e7929601d9e06))
+
 ### [4.3.1](https://github.com/JackySoft/marsview/compare/v4.3.0...v4.3.1) (2024-10-17)
 
 

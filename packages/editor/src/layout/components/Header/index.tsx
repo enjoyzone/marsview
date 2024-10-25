@@ -10,11 +10,11 @@ import {
   LoadingOutlined,
   PieChartOutlined,
   CloudOutlined,
+  ApartmentOutlined,
 } from '@ant-design/icons';
-import { toBlob } from 'html-to-image';
 import { usePageStore } from '@/stores/pageStore';
 import { message } from '@/utils/AntdGlobal';
-import { updatePageData, uploadImg } from '@/api';
+import { updatePageData } from '@/api';
 import Publish from './PublishPopover';
 import styles from './index.module.less';
 
@@ -81,6 +81,11 @@ const Header = memo(() => {
       icon: <PieChartOutlined style={{ fontSize: 16 }} />,
     },
     {
+      label: '工作流',
+      key: 'workflows',
+      icon: <ApartmentOutlined style={{ fontSize: 16 }} />,
+    },
+    {
       label: '图片云',
       key: 'cloud',
       icon: <CloudOutlined style={{ fontSize: 16 }} />,
@@ -88,7 +93,7 @@ const Header = memo(() => {
   ];
 
   useEffect(() => {
-    if (['/projects', '/pages', '/libs', '/templates', '/cloud'].includes(location.pathname)) {
+    if (['/projects', '/pages', '/libs', '/templates', '/workflows', '/cloud'].includes(location.pathname)) {
       setNav(true);
       setNavKey([location.pathname.slice(1)]);
     } else {
@@ -112,27 +117,10 @@ const Header = memo(() => {
     navigate(`/${e.key}`);
   };
 
-  // 将当前页面生成图片，并上传到服务器
-  const createPreviewImg = async () => {
-    try {
-      const blob = await toBlob(document.querySelector('#page') as HTMLElement);
-      if (!blob) return;
-      const file = new File([blob], `${pageId}-${Date.now()}.png`, { type: 'image/png' });
-      const res = await uploadImg({
-        file: file, // File 对象
-        id: userInfo.userId + '_' + pageId, // 页面ID
-      });
-      return res.url;
-    } catch (error) {
-      console.error('封面图上传失败', error);
-      return '';
-    }
-  };
   // 操作
   const handleClick = async (name: string) => {
     if (name === 'save') {
       setLoading(true);
-      const preview_img = await createPreviewImg();
       const page_data = JSON.stringify({
         ...pageData,
         // 下面字段排除在page_data外
@@ -155,7 +143,6 @@ const Header = memo(() => {
           is_public: is_public ?? 1,
           is_edit: is_edit ?? 1,
           page_data,
-          preview_img: preview_img || pageData.preview_img,
         });
         updatePageState({ env: 'all' });
         setLoading(false);
@@ -228,7 +215,7 @@ const Header = memo(() => {
         {/* 首页 - 导航菜单 */}
         {isNav && (
           <div className={styles.menu}>
-            <Menu onClick={handleTab} selectedKeys={navKey} mode="horizontal" items={items} />
+            <Menu onClick={handleTab} selectedKeys={navKey} mode="horizontal" items={items} style={{ width: items.length * 110 }} />
           </div>
         )}
 

@@ -1,8 +1,8 @@
 {
   "private": false,
   "name": "marsview",
-  "description": "marsview 是一款开源的低代码平台，面向中后台管理系统。支持可视化配置、逻辑编排、事件流交互、数据源配置等。",
-  "version": "4.3.1",
+  "description": "Marsview 是一款开源的低代码平台，面向中后台管理系统。支持可视化配置、逻辑编排、事件流交互、数据源配置等。",
+  "version": "4.4.8",
   "license": "MIT",
   "author": {
     "name": "河畔一角",
@@ -21,13 +21,18 @@
     "可视化搭建"
   ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start:editor": "pnpm --filter editor start",
-    "build:editor": "pnpm --filter editor build",
+    "build:editor": "rm -rf dist/editor && pnpm --filter editor build",
+    "deploy:editor": "pnpm build:editor && cross-env PROJECT=editor node ./deploy.js",
     "start:admin": "pnpm --filter admin start",
-    "build:admin": "pnpm --filter admin build",
+    "build:admin": "rm -rf dist/admin && pnpm --filter admin build",
+    "deploy:admin": "pnpm build:admin && cross-env PROJECT=admin node ./deploy.js",
     "start:docs": "pnpm --filter docs dev",
-    "build:docs": "pnpm --filter docs build",
+    "build:docs": "rm -rf dist/docs && pnpm --filter docs build",
+    "deploy:docs": "pnpm build:docs && cross-env PROJECT=docs node ./deploy.js",
     "build": "rm -rf dist && pnpm --filter editor build && pnpm --filter admin build && pnpm --filter docs build",
+    "deploy": "pnpm build && cross-env PROJECT=all node ./deploy.js",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "release:major": "standard-version --release-as major",
     "release:minor": "standard-version --release-as minor",
@@ -59,6 +64,7 @@
     "ahooks": "^3.7.8",
     "antd": "^5.21.1",
     "axios": "^0.27.2",
+    "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "less": "^4.2.0",
     "lodash-es": "^4.17.21",
@@ -69,6 +75,7 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.21.2",
     "standard-version": "^9.5.0",
+    "styled-components": "^6.1.13",
     "vite": "^5.0.8",
     "vite-plugin-externals-new": "^1.5.5",
     "vite-plugin-svgr": "^4.2.0",
@@ -78,9 +85,15 @@
     "@types/lodash-es": "^4.17.7",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "cross-env": "^7.0.3",
     "lint-staged": "^10.0.7",
+    "only-allow": "^1.2.1",
+    "scp2": "^0.5.0",
     "typescript": "latest",
     "yorkie": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "standard-version": {
     "types": [

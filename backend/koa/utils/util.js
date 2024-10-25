@@ -111,8 +111,7 @@ module.exports = {
    * @returns 上传后云地址
    */
   async uploadString(fileName, content) {
-    var BosClient = sdk.BosClient;
-    var config = {
+    var ossConfig = {
       credentials: {
         ak: config.OSS_ACCESSKEY,
         sk: config.OSS_ACCESSKEYSECRET,
@@ -120,9 +119,9 @@ module.exports = {
       endpoint: config.OSS_ENDPOINT,
     };
 
-    let bucket = config.OSS_BUCKET;
+    let bucket = config.OSS_BUCKET1;
     let object = `libs/${fileName}`;
-    let client = new BosClient(config);
+    let client = new sdk.BosClient(ossConfig);
 
     let ContentType = '';
     if (fileName.endsWith('.js')) {
