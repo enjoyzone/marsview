@@ -35,7 +35,7 @@ public class HtmlUtil {
     public static void writerJson(HttpServletResponse response, Object object) {
         try {
             response.setContentType("application/json");
-            response.setHeader("Access-Control-Allow-Origin", "*");
+//            response.setHeader("Access-Control-Allow-Origin", "*");
             writer(response, toJSONString(object));
         } catch (JSONException var3) {
             var3.printStackTrace();
